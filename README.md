@@ -2,7 +2,7 @@
 **The Forge: Digital Academic Works Repository**
 
 A full-stack academic repository platform for De La Salle Lipa researchers to upload, archive, and discuss thesis work. Built with React + TypeScript and powered by Supabase.
-Check it out on [Vercel](https://the-forge.vercel.app/).
+Check it out on [Cloudflare Workers & Pages](https://the-forge.cppdecl.workers.dev/).
 
 **Note:** This project is developed as a final requirement for Software Engineering 2.
 
