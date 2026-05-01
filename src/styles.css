@@ -1,0 +1,181 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "SF Pro Text", "Segoe UI", sans-serif;
+  --font-display: "Inter Display", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Deeper near-black canvas with a vivid green accent */
+  --background: oklch(0.12 0.006 240);
+  --foreground: oklch(0.97 0.005 240);
+
+  --card: oklch(0.15 0.007 240);
+  --card-foreground: oklch(0.97 0.005 240);
+  --popover: oklch(0.17 0.008 240);
+  --popover-foreground: oklch(0.97 0.005 240);
+
+  /* Brighter, more vivid green */
+  --primary: oklch(0.82 0.22 145);
+  --primary-foreground: oklch(0.12 0.01 145);
+  --primary-glow: oklch(0.86 0.24 148);
+
+  --secondary: oklch(0.19 0.008 240);
+  --secondary-foreground: oklch(0.97 0.005 240);
+
+  --muted: oklch(0.18 0.007 240);
+  --muted-foreground: oklch(0.68 0.013 240);
+
+  --accent: oklch(0.22 0.012 240);
+  --accent-foreground: oklch(0.97 0.005 240);
+
+  --destructive: oklch(0.62 0.21 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.23 0.009 240);
+  --input: oklch(0.20 0.009 240);
+  --ring: oklch(0.82 0.22 145);
+
+  --chart-1: oklch(0.82 0.22 145);
+  --chart-2: oklch(0.65 0.12 200);
+  --chart-3: oklch(0.7 0.14 280);
+  --chart-4: oklch(0.75 0.13 65);
+  --chart-5: oklch(0.6 0.1 340);
+
+  --gradient-surface: linear-gradient(180deg, oklch(0.16 0.008 240) 0%, oklch(0.12 0.006 240) 100%);
+  --gradient-accent: linear-gradient(135deg, oklch(0.86 0.22 145) 0%, oklch(0.72 0.18 160) 100%);
+  --shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.4);
+  --shadow-sm: 0 1px 0 0 oklch(1 0 0 / 0.04) inset, 0 1px 2px 0 oklch(0 0 0 / 0.5);
+  --shadow-md: 0 1px 0 0 oklch(1 0 0 / 0.05) inset, 0 6px 16px -2px oklch(0 0 0 / 0.6);
+  --shadow-lg: 0 1px 0 0 oklch(1 0 0 / 0.06) inset, 0 16px 40px -8px oklch(0 0 0 / 0.7);
+  --shadow-glow: 0 0 32px -4px oklch(0.82 0.22 145 / 0.35);
+}
+
+.dark {
+  --background: oklch(0.12 0.006 240);
+  --foreground: oklch(0.97 0.005 240);
+  --card: oklch(0.15 0.007 240);
+  --card-foreground: oklch(0.97 0.005 240);
+  --popover: oklch(0.17 0.008 240);
+  --popover-foreground: oklch(0.97 0.005 240);
+  --primary: oklch(0.82 0.22 145);
+  --primary-foreground: oklch(0.12 0.01 145);
+  --secondary: oklch(0.19 0.008 240);
+  --secondary-foreground: oklch(0.97 0.005 240);
+  --muted: oklch(0.18 0.007 240);
+  --muted-foreground: oklch(0.68 0.013 240);
+  --accent: oklch(0.22 0.012 240);
+  --accent-foreground: oklch(0.97 0.005 240);
+  --destructive: oklch(0.62 0.21 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.23 0.009 240);
+  --input: oklch(0.20 0.009 240);
+  --ring: oklch(0.82 0.22 145);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html {
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01", "ss03";
+    letter-spacing: -0.005em;
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.10 0.005 240);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.28 0.010 240);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.35 0.012 240);
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.28 0.010 240) oklch(0.10 0.005 240);
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    font-weight: 600;
+  }
+  h1 { letter-spacing: -0.03em; }
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-feature-settings: normal;
+  }
+}
+
+@keyframes forge-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes forge-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@layer utilities {
+  .surface-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .surface-elevated {
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+  .hairline-b { box-shadow: 0 1px 0 0 var(--border); }
+  .ring-focus:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
